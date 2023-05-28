@@ -9,22 +9,8 @@ class Hero {
   }
 
   getHeroElement() {
-    return (
-      '<img width="' +
-      this.size +
-      '"' +
-      ' height="' +
-      this.size +
-      '"' +
-      ' src="' +
-      this.image +
-      '"' +
-      ' style="top: ' +
-      this.top +
-      'px; left:' +
-      this.left +
-      'px;position:absolute;" />'
-    );
+    return ('<img width="' + this.size + '"' +' height="' + this.size + '"' + ' src="' + this.image + '"' + ' style="top: ' + this.top + 'px; left:' + this.left +
+      'px;position:absolute;" />');
   }
 
   moveRight() {
@@ -40,10 +26,10 @@ class Hero {
 
 var hero = new Hero(
   'https://st.gamevui.com/images/image/2019/03/20/pikachu-200.jpg',
-  20,
-  30,
-  200,
-  30
+  10,
+  10,
+  50,
+  20
 );
 
 function start() {
@@ -57,7 +43,7 @@ function start() {
   if (isRunToRight) {
     hero.moveRight();
     document.getElementById('game').innerHTML = hero.getHeroElement();
-    setTimeout(start, 1000);
+    setTimeout(start, 100);
   } else {
     if (isRunToBottom) {
       console.log(hero.getHeroElement());
