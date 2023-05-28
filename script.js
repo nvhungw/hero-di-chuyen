@@ -1,54 +1,69 @@
 console.log('Hello!');
-class Hero{
-  constructor(image, top, left, size,speed){
+class Hero {
+  constructor(image, top, left, size, speed) {
     this.image = image;
     this.top = top;
     this.left = left;
     this.size = size;
-    this.speed = speed
+    this.speed = speed;
   }
 
-  getHeroElement(){
-    return '<img width="'+ this.size + '"' +
-      ' height="'+ this.size + '"' +
-      ' src="' + this.image +'"' +
-      ' style="top: '+this.top+'px; left:'+this.left+'px;position:absolute;" />';
+  getHeroElement() {
+    return (
+      '<img width="' +
+      this.size +
+      '"' +
+      ' height="' +
+      this.size +
+      '"' +
+      ' src="' +
+      this.image +
+      '"' +
+      ' style="top: ' +
+      this.top +
+      'px; left:' +
+      this.left +
+      'px;position:absolute;" />'
+    );
   }
 
- moveRight(){
+  moveRight() {
     this.left += this.speed;
     console.log('left: ' + this.left);
   }
 
-  moveBottom(){
+  moveBottom() {
     this.top += this.speed;
     console.log('left: ' + this.left);
   }
-
 }
 
-var hero = new Hero('pikachu.png', 20, 30, 200,30);
+var hero = new Hero(
+  'https://st.gamevui.com/images/image/2019/03/20/pikachu-200.jpg',
+  20,
+  30,
+  200,
+  30
+);
 
-function start(){
-  let windowWidth = window.innerWidth
-  let windowHeight = window.innerHeight
+function start() {
+  let windowWidth = window.innerWidth;
+  let windowHeight = window.innerHeight;
 
   let isRunToRight = hero.left < windowWidth - hero.size;
   let isRunToBottom = hero.top < windowHeight - hero.size;
 
-  console.log(isRunToRight)
-  if(isRunToRight){
+  console.log(isRunToRight);
+  if (isRunToRight) {
     hero.moveRight();
     document.getElementById('game').innerHTML = hero.getHeroElement();
-    setTimeout(start, 1000)
-  }
-  else {
-    if(isRunToBottom)
-    {
-      console.log(hero.getHeroElement())
+    setTimeout(start, 1000);
+  } else {
+    if (isRunToBottom) {
+      console.log(hero.getHeroElement());
       hero.moveBottom();
       document.getElementById('game').innerHTML = hero.getHeroElement();
-      setTimeout(start, 1000)
+      setTimeout(start, 1000);
     }
   }
   // else{
@@ -58,11 +73,8 @@ function start(){
   //   document.getElementById('game').innerHTML = hero.getHeroElement();
   //     setTimeout(start, 1000)
   // }
-   
-  // }
- 
 
- 
+  // }
 }
 
 start();
